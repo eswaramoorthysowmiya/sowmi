@@ -51,7 +51,7 @@
   <script>
     function calculation() {
       let input = document.getElementById("dob").value;
-      if (input) { // Check if a valid date is selected
+      if (input) { 
         let inputDate = new Date(input);
         let currentDate = new Date();
         let millisecDiff = currentDate.getTime() - inputDate.getTime();
@@ -59,16 +59,28 @@
         let minDiff = Math.floor(SecDiff / 60);
         let hrDiff = Math.floor(minDiff / 60);
         let dayDiff = Math.floor(hrDiff / 24);
+        let monDiff = Math.floor(dayDiff / 30);
+      
+        let yearDiff = currentDate.getFullYear() - inputDate.getFullYear();
+        let monthDiff = currentDate.getMonth() - inputDate.getMonth();
+        
+        
+        if (monthDiff < 0) {
+          yearDiff--;
+          monthDiff += 12;
+        }
 
         document.getElementById("display-data").innerHTML = `
-          Input value: ${input} <br>
-          Formatted Date: ${inputDate.toLocaleDateString()} <br>    
+          Input value: ${input} <br> 
           Current Date: ${currentDate.toLocaleDateString()} <br>
           Day Difference: ${dayDiff} <br>
           Hour Difference: ${hrDiff} <br>
           Minute Difference: ${minDiff} <br>
           Second Difference: ${SecDiff} <br>
-          Millisecond Difference: ${millisecDiff}`;
+          Millisecond Difference: ${millisecDiff} <br>
+          Month Difference: ${monDiff} <br>
+          Year Difference: ${yearDiff} <br>
+          Month Difference: ${monthDiff}`;
       } else {
         document.getElementById("display-data").innerHTML = "Select a valid date.";
       }
