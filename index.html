@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOB Calculation</title>
+
+    <style>
+        body { 
+            text-align: center;
+        }
+        .container { 
+            padding-top: 25px;
+        }
+              .form-inputs {
+                    text-align: center;
+                  width: 30%;
+                 margin: 5px;
+                  padding: 5px;
+                  border: 1px solid;
+                  border-radius: 5px;
+               }
+
+
+               .btn {
+                text-align: center;
+                width:auto;
+                margin: 8px;
+                padding: 8px;
+                border:1px solid;
+                border-radius: 6px;
+                color:#db1515;
+                background-color:#2225e0;
+                font-size: 18px;
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: bold;
+               }
+               hr {
+                border-top: 1px dashed;
+               }
+               </style>
+</head>
+<body> 
+    <div class="container">
+        <div>
+        <label for="bod"> Date of Birth</label> 
+        <input type="date" name="dob" id="dob"
+        class="form-inputs" />
+           </div>
+   <div id="display. data"></div>
+   <button class="btn"  id="btn" onclick="calculate()"> calculate date </button>
+   <script>
+        function calculation() {
+            let input=document.getElementById("dob").value;
+            if(Date.parse(input)){
+                let inputDate=new Date(input);
+                 let currentDate=new Date();
+                 document.getElementById("display.date").innerHTML=`
+                 input value:${input}<br>
+                 Formatted Date:${inputDate}   <br>    
+                current Date:${currentDate}  
+                `;
+              }
+              console.log("hi iam there!!");
+        document.getElementsById("display.data").innerHTML="HI iam there!!";
+        
+    }
+   </script>
+ 
+</body>
+<hr />
+</html>
